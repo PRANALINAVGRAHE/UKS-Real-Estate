@@ -1,0 +1,25 @@
+body {
+    padding-top: 84px !important;
+}
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  /* Add more background properties as needed */
+}
+
+a:hover{
+    color: goldenrod !important;
+}
+
+.login-btn{
+    background-color: goldenrod !important;
+    color: black !important;
+}
+
+.login-btn:hover{
+    background-color: aliceblue !important;
+    color: black !important;
+}
+.pink{
+    background-color: #FEF7F0;
+}

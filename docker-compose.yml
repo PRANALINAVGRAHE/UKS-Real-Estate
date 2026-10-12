@@ -1,0 +1,29 @@
+version: '3.11'
+
+services:
+  mysql_db_one:
+    image:  mysql
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: ${db_name}  
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
+    ports:
+      - '4406:3306'
+    command: --bind-address=0.0.0.0
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/backend
+    ports:
+      - '8000:8000'
+    env_file:
+      - .env
+    depends_on:
+      - mysql_db_one
+    links:
+      - mysql_db_one
+    
